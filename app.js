@@ -1,12 +1,13 @@
 const express = require("express");
-
 const app = express();
+const path = require("path");
+
 const PORT = process.env.PORT || 5000;
 
 app.get("/", (req, res) => {
-    res.end("<h1>hello world!!!</h1>");
+    res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 app.listen(PORT, () => {
-    console.log(`Now listening to ${PORT}`);
+    console.log(`Now listening to port: ${PORT}`);
 });
