@@ -5,6 +5,14 @@ const members = require("./assets/members");
 
 const PORT = process.env.PORT || 5000;
 
+const logger = (req, res, next) => {
+    console.log(`${req.protocol}://${req.get("host")}${req.originalUrl}`);
+    next();
+};
+
+// Init middleware
+app.use(logger);
+
 // Set static folder
 app.use(express.static(path.join(__dirname, "public")));
 
