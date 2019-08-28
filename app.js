@@ -8,6 +8,13 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+const logger = function(req, res, next) {
+    console.log(new Date());
+    next();
+};
+
+app.use(logger);
+
 // Set static folder
 app.use(express.static(path.join(__dirname, "public")));
 
