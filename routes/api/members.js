@@ -96,7 +96,6 @@ router.delete("/:id", (req, res) => {
     if (member === null) {
         res.status(400).json({ status: "error", message: "member not found" });
     } else {
-        console.log(updated_members);
         res.json({
             status: "success",
             message: "successfully deleted account",
